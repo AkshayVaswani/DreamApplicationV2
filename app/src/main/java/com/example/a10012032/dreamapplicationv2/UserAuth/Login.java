@@ -53,6 +53,8 @@ public class Login extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     signUp.USER_KEY = user.getUid();
+                    Log.d("TESTINGid", user.getUid()+" is null");
+                    Log.d("TESTINGidKey", signUp.USER_KEY+" is null");
                 } else {
                     Log.d("TAG", "onAuthStateChanged:signed_out");
                 }
@@ -88,10 +90,12 @@ public class Login extends AppCompatActivity {
                                         FirebaseUser user = firebaseAuth.getCurrentUser();
                                         if(user != null) {
                                             signUp.USER_KEY = user.getUid();
+                                            Log.d("TESTINGid2", user.getUid()+" is null");
+                                            Log.d("TESTINGid2key", signUp.USER_KEY+" is null");
                                         }
                                     }
                                 };
-                                Intent in = new Intent(Login.this, Profile.class);
+                                Intent in = new Intent(Login.this, ProfileU.class);
                                 startActivity(in);
                             }else{
                                 Toast.makeText(Login.this, "User Login Doesn't Exist" , Toast.LENGTH_LONG).show();
@@ -116,11 +120,13 @@ public class Login extends AppCompatActivity {
             DataSnapshot dataUser = (DataSnapshot) iterator.next();
             if (dataUser.child("EmailUser").getValue().toString().equals(emailForVer)) {
                 if (dataUser.child("isVerified").getValue().toString().equals("unverified")) {
-                    Intent in = new Intent(Login.this, Profile.class);
+                    Intent in = new Intent(Login.this, ProfileU.class);
                     startActivity(in);
                 } else {
                     startActivity(new Intent(Login.this, MainActivity.class));
                     usernameValue=dataUser.child("Username").getValue().toString();
+                    signUp.USER_KEY =dataUser.child("userKey").getValue().toString();
+                    Log.d("LASTONE", signUp.USER_KEY);
                 }
             }
         }

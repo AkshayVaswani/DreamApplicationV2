@@ -14,7 +14,7 @@ import com.example.a10012032.dreamapplicationv2.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Profile extends AppCompatActivity {
+public class ProfileU extends AppCompatActivity {
     EditText fName, lName, PhNo, BDay, uName;
     Button svBtn;
     DatabaseReference mDataRef;
@@ -23,7 +23,7 @@ public class Profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_profileu);
         keyUser = signUp.USER_KEY;
         mDataRef = FirebaseDatabase.getInstance().getReference().child("Users").child(keyUser);
         fName = (EditText) findViewById(R.id.fName);
@@ -56,12 +56,12 @@ public class Profile extends AppCompatActivity {
                     }else{
                         mDataRef.child("birthday").setValue("null");
                     }
-                    Toast.makeText(Profile.this, "User profile added", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ProfileU.this, "User profile added", Toast.LENGTH_LONG).show();
 
-                    startActivity(new Intent(Profile.this, MainActivity.class));
+                    startActivity(new Intent(ProfileU.this, MainActivity.class));
 
                 }else{
-                    Toast.makeText(Profile.this, "Failed to create User Account", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ProfileU.this, "Failed to create User Account", Toast.LENGTH_LONG).show();
 
                 }
             }

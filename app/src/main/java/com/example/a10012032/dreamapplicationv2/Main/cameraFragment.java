@@ -2,7 +2,6 @@ package com.example.a10012032.dreamapplicationv2.Main;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
@@ -16,18 +15,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.a10012032.dreamapplicationv2.R;
 import com.example.a10012032.dreamapplicationv2.UserAuth.Login;
-import com.example.a10012032.dreamapplicationv2.UserAuth.Profile;
 import com.example.a10012032.dreamapplicationv2.UserAuth.signUp;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.io.ByteArrayOutputStream;
 
@@ -49,6 +43,7 @@ public class cameraFragment extends Fragment {
     DatabaseReference mUserData;
     String keyUser;
     String UsernameStr;
+    public static boolean refresh;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -88,6 +83,8 @@ public class cameraFragment extends Fragment {
                 holder.setImageResource(0);
                 editText.setVisibility(View.INVISIBLE);
                 post.setVisibility(View.INVISIBLE);
+                refresh=true;
+
             }
         });
 

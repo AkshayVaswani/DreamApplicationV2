@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.a10012032.dreamapplicationv2.Main.MainActivity;
 import com.example.a10012032.dreamapplicationv2.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -99,7 +98,7 @@ public class signUp extends AppCompatActivity {
                                     mChildDatabase.child("PasswordUser").setValue(nPassString);
                                     Toast.makeText(signUp.this, "User Account Created", Toast.LENGTH_LONG).show();
                                     USER_KEY = mChildDatabase.getKey();
-                                    startActivity(new Intent(signUp.this, Profile.class));
+                                    startActivity(new Intent(signUp.this, ProfileU.class));
 
                                 } else {
                                     Toast.makeText(signUp.this, "Failed to create User Account 1", Toast.LENGTH_LONG).show();

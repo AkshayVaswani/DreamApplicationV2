@@ -20,7 +20,7 @@
         </activity>
         <activity android:name=".Main.MainActivity" ></activity>
         <activity android:name=".UserAuth.signUp" ></activity>
-        <activity android:name=".UserAuth.Profile" ></activity>
+        <activity android:name=".UserAuth.ProfileU" ></activity>
     </application>
 
 </manifest>
